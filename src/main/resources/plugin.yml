@@ -1,0 +1,7 @@
+name: Matitos TikTakToe
+version: '${project.version}'
+main: de.matitos.tiktaktoe.Main
+api-version: 1.19
+authors: [ Matito ]
+description: A TikTakToe in Minecraft
+website: matitos.eu
