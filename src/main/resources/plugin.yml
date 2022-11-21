@@ -1,7 +1,14 @@
-name: Matitos TikTakToe
+name: MatitosTikTakToe
 version: '${project.version}'
 main: de.matitos.tiktaktoe.Main
-api-version: 1.19
+api-version: 1.16
 authors: [ Matito ]
 description: A TikTakToe in Minecraft
 website: matitos.eu
+commands:
+  tiktaktoe:
+    permission: ttt.cmd.ttt
+    aliases: ["ttt"]
+    description: "Play TikTakToe in Minecraft"
+  test:
+    permission: ttt.cmd.test
