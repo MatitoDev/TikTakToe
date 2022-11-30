@@ -141,6 +141,9 @@ public class TTTCommand implements CommandExecutor {
             if (target == null){
                 player.sendMessage(Main.getPrefix() + "That player is not online!");
                 return false;
+            } else if (target == player) {
+                player.sendMessage(Main.getPrefix() + "You cannot play against yourself!");
+                return false;
             }
 
             Main.challange.put(target, player);
