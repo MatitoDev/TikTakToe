@@ -1,7 +1,6 @@
 package de.matitos.tiktaktoe;
 
 import de.matitos.tiktaktoe.commands.TTTCommand;
-import de.matitos.tiktaktoe.commands.TestCommand;
 import de.matitos.tiktaktoe.listeners.InvClickListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -44,7 +43,6 @@ public final class Main extends JavaPlugin {
 
         //commands
         getCommand("tiktaktoe").setExecutor(new TTTCommand());
-        getCommand("test").setExecutor(new TestCommand());
 
         //Listeners
         final PluginManager pluginManager = Bukkit.getPluginManager();

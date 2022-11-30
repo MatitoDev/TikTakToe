@@ -10,5 +10,3 @@ commands:
     permission: ttt.cmd.ttt
     aliases: ["ttt"]
     description: "Play TikTakToe in Minecraft"
-  test:
-    permission: ttt.cmd.test
