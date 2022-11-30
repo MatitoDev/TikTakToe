@@ -2,7 +2,13 @@ package de.matitos.tiktaktoe.game;
 
 import de.matitos.tiktaktoe.Main;
 import de.matitos.tiktaktoe.listeners.InvClickListener;
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
+import org.bukkit.Location;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.meta.FireworkMeta;
 
 import java.util.ArrayList;
 
@@ -75,16 +81,37 @@ public class GameMechanics {
     private static void winnerLoop(Integer playerId){
         ArrayList<Player> players;
         players = (ArrayList<Player>) Main.inGame.get((Integer) InvClickListener.getGameID());
+
         for (Player player:players) {
             player.closeInventory();
             if (playerId == 1) {
                 player.sendMessage(Main.getPrefix() + "Player " + players.get(1).getName() + " wins the Game");
+                spawnFireworks(players.get(1).getLocation());
             } else if (playerId == 2) {
                 player.sendMessage(Main.getPrefix() + "Player " + players.get(0).getName() + " wins the Game");
+                spawnFireworks(players.get(2).getLocation());
             } else {
                 player.sendMessage("Game is Broken");
             }
 
+        }
+    }
+
+    public static void spawnFireworks(Location location){
+        Location loc = location;
+        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+        FireworkMeta fwMeta = fw.getFireworkMeta();
+
+        fwMeta.setPower(2);
+
+        fwMeta.addEffect(FireworkEffect.builder().withColor(Color.GREEN).flicker(true).build());
+
+        fw.setFireworkMeta(fwMeta);
+        fw.detonate();
+
+        for(int i = 0;i<4; i++){
+            Firework fw2 = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+            fw2.setFireworkMeta(fwMeta);
         }
     }
 }
