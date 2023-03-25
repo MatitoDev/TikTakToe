@@ -70,6 +70,9 @@ public class InvClickListener implements Listener {
             // org.bukkit.event.EventException: null
             // i renamed some vars because of Typos maybe there got something broken (Challanger to Challenger)
             // but i checked there are no vars in the old writeing
+            //top left from target 
+            //last one both
+            //challenger is ok
 
 
             //ToDo more beautiful and clear Code / commend code
