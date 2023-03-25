@@ -1,6 +1,7 @@
 package de.matitos.tiktaktoe.game;
 
 import de.matitos.tiktaktoe.Main;
+import de.matitos.tiktaktoe.commands.TTTCommand;
 import de.matitos.tiktaktoe.listeners.InvClickListener;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -16,15 +17,7 @@ public class GameMechanics {
     public static void addset(Integer slot, String player){
 
         ArrayList<Integer> slots = new ArrayList<>();
-        slots.add(12);
-        slots.add(13);
-        slots.add(14);
-        slots.add(21);
-        slots.add(22);
-        slots.add(23);
-        slots.add(30);
-        slots.add(31);
-        slots.add(32);
+        TTTCommand.createFieldNumbers(slots);
 
         int slotIndex = slots.indexOf(slot);
 
@@ -32,7 +25,7 @@ public class GameMechanics {
         sets = (ArrayList<Integer>) Main.setsMap.get((Integer) InvClickListener.getGameID());
 
         switch (player){
-            case "challanger":
+            case "challenger":
                 sets.set(slotIndex, 1);
 
                 break;
@@ -49,10 +42,8 @@ public class GameMechanics {
     public static void checkWin(){
 
         ArrayList<Integer> sets;
-        ArrayList<Player> players;
         sets = (ArrayList<Integer>) Main.setsMap.get((Integer) InvClickListener.getGameID());
 
-        players = (ArrayList<Player>) Main.inGame.get((Integer) InvClickListener.getGameID());
 
         for (int i = 1; i <=2 ; i++) {
 
@@ -98,8 +89,7 @@ public class GameMechanics {
     }
 
     public static void spawnFireworks(Location location){
-        Location loc = location;
-        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+        Firework fw = (Firework) location.getWorld().spawnEntity(location, EntityType.FIREWORK);
         FireworkMeta fwMeta = fw.getFireworkMeta();
 
         fwMeta.setPower(2);
@@ -110,7 +100,7 @@ public class GameMechanics {
         fw.detonate();
 
         for(int i = 0;i<4; i++){
-            Firework fw2 = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+            Firework fw2 = (Firework) location.getWorld().spawnEntity(location, EntityType.FIREWORK);
             fw2.setFireworkMeta(fwMeta);
         }
     }

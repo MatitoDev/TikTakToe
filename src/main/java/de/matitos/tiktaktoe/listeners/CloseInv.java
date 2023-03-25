@@ -2,13 +2,10 @@ package de.matitos.tiktaktoe.listeners;
 
 import de.matitos.tiktaktoe.Main;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class CloseInv implements Listener {
     @EventHandler

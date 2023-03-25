@@ -5,7 +5,6 @@ import de.matitos.tiktaktoe.listeners.InvClickListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,9 +18,8 @@ import java.util.Properties;
 public final class Main extends JavaPlugin {
 
     public static Inventory playInv = Bukkit.createInventory(null, 6*9, "§2Tik Tak Toe");
-    public static Inventory selectInv = Bukkit.createInventory(null, InventoryType.HOPPER, "§2Select Item");
     public static Integer gameID = 0;
-    public static Map<Player, Player> challange = new HashMap<>();
+    public static Map<Player, Player> challenge = new HashMap<>();
     public static Map<Integer, Integer> turn = new HashMap<>();
     public static Map<Integer, List<Player>> inGame = new HashMap<>();
     public static Map<Integer, List<Integer>> setsMap = new HashMap<>();
